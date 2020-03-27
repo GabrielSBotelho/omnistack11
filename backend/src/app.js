@@ -5,6 +5,7 @@
 const express = require('express');
 const routes = require('./routes');
 const cors = require('cors');
+const { errors } = require('celebrate');
 
 // variavel app vai armazenar a aplicação
 const app = express();
@@ -13,6 +14,8 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 app.use(routes);
+app.use(errors());
+
 
 /* 
     - pega a rota desejada, no caso '/' pega a rota raiz.
@@ -37,5 +40,5 @@ app.use(routes);
 */
 
 // vai ouvir a porta x; 
-app.listen(3333);
+module.exports = app;
 

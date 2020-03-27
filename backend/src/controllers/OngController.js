@@ -1,4 +1,4 @@
-const cryto = require('crypto'); // metódo que cria uma string aleatória
+const generateUniqueId = require('../utils/generateUniqueId');
 const connection = require('../database/connection');
 
 module.exports = {
@@ -13,7 +13,7 @@ module.exports = {
     async create(request, response){
         const {name, email, whatsapp, city, uf} = request.body;
     
-        const id = cryto.randomBytes(4).toString('HEX');
+        const id = generateUniqueId();
     
         await connection('ongs').insert({
             id,
