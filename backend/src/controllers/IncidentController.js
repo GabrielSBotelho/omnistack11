@@ -29,7 +29,6 @@ module.exports = {
     async create(request, response){
         const{ title, description, value } = request.body;
         const ong_id = request.headers.authorization;
-        //request.headers;  guarda info do contexto da requisição: localização, idioma..
         
         const [id] = await connection('incidents').insert({
             title,
